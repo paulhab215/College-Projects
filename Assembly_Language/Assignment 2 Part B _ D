@@ -1,0 +1,164 @@
+########################################################################## 
+# Title:Assignment 2 			Author: Paul Habjanetz
+# Class: CS2318-751	Due: 07/22/2013		Submitted:07/22/2013 
+#
+############################ data segment ################################
+
+		.data
+exam1:		.asciiz "Enter score for Exam 1: "
+exam2:		.asciiz "Enter score for Exam 2: "
+finalexam:	.asciiz "Enter score for Final Exam: "
+average:	.asciiz "Here is your final score for the class: "
+
+
+############################ code segment ################################
+		.text 
+		.globl main
+
+main:
+
+##########################################################################
+#
+#Paul Habjanetz, CS 2318-751, Assignment 2 Part 1 Program B.
+#
+#Function Description - Evaluates course score based on 3 exam scores and 
+#grading policy.
+##########################################################################
+
+		li $v0, 4
+		la $a0, exam1			# prompt for input for exam 1
+		syscall
+				
+		li $v0, 5			# read in input
+		syscall
+		move $t1, $v0			# save input in temp variable 1
+				
+		li $v0, 11
+		li $a0, '\n' 			# newline spacing
+		syscall	
+
+		li $v0, 4
+		la $a0, exam2			# prompt for input for exam 2
+		syscall
+				
+		li $v0, 5			# read in input
+		syscall
+		move $t2, $v0			# save input in temp variabl 2
+				
+		li $v0, 11
+		li $a0, '\n' 			# newline spacing
+		syscall	
+				
+		li $v0, 4
+		la $a0, finalexam		# prompt for input for exam 3
+		syscall
+				
+		li $v0, 5			# read in input
+		syscall
+		move $t3, $v0			# save input in temp variable 3
+				
+		li $v0, 11
+		li $a0, '\n' 			# newline spacing
+		syscall	
+				
+		li $t4, 115			# load $t5 with constant 115
+		li $t5, 29			# load $t9 with constant 29
+				
+		mul $t1, $t1, $t4		# multiply $t1 by 115
+		sra $t1, $t1, 9			# divide int in $t1 by 512 (= 2^9)		
+				
+		sll $t2, $t2, 3			# multiply int in $t2 by 8 (= 2^3)
+		div $t2, $t5			# divide int by 29
+		mflo $t2
+				
+		sra $t3, $t3, 1			# divide in in $t3 by 2 (=2^1)
+				
+		add $t3, $t3, $t2		# add $t3 and $t2
+		add $t3, $t3, $t1		# add $t3 and $t2
+				
+		li $v0, 4
+		la $a0, average			# print screen about average
+		syscall
+				
+		li $v0, 1
+		move $a0, $t3
+		syscall				# display final score 	
+				
+		li $v0, 11
+		li $a0, '\n' 			# newline spacing
+		syscall	
+		
+		li $v0, 11
+		li $a0, '\n' 			# newline spacing
+		syscall	
+				   		   
+	
+				
+				
+##########################################################################
+# Paul Habjanetz, CS 2318-751, Assignment 2 Part 1 Program D
+#
+#Function Description - Evaluates what sign bit is and whether it is odd or
+#and displays to screen.
+############################ data segment ################################
+		.data
+legend1:	.asciiz "00: +ve and even\n"
+legend2:	.asciiz "01: +ve and odd\n"
+legend3:	.asciiz "10: -ve and even\n"
+legend4:	.asciiz "11: -ve and odd\n"
+inPrompt:	.asciiz "Enter an integer: "
+outLab:		.asciiz "It is "
+############################ code segment ################################
+		.text
+
+
+		li $v0, 4
+		la $a0, legend1        
+		syscall                   # print legend line 1
+		la $a0, legend2        
+		syscall                   # print legend line 2
+		la $a0, legend3        
+		syscall                   # print legend line 3
+		la $a0, legend4        
+		syscall                   # print legend line 4
+		la $a0, inPrompt        
+		syscall                   # print input prompt
+		
+		li $v0, 5
+		syscall                   # read input integer
+		
+		##########################################################
+		# Write NO MORE THAN 9 lines of code that involve using 
+		# ONLY the following:
+		# - syscall
+		# - syscall supporting instructions (e.g.: li to load $v0)
+		# - instruction to make a saved copy
+		# - bit manipulating instructions (ANDing, ORing, XORing,
+		#   NORing and shifting - only whatever that are needed)
+		# so that the program will work just like the sample runs 
+		# shown at the bottom.
+		# You MUST test your completed program for AT LEAST the 
+		# test cases shown (and include the result in hardcopy).
+		##########################################################
+				
+		move $t0, $v0		# Moves value into temporary
+		
+		li $v0, 4
+		la $a0, outLab		# Outputs OutLab to screen
+		syscall
+		
+		srl $a0, $t0, 31
+		
+		li $v0, 1		# Prints the sign bit to scree
+		syscall
+		
+		andi $a0, $t0, 0x1	# Prints the bit in the first position (x1)
+		syscall
+		
+                ##########################################################
+		
+                li $v0, 10               # exit
+                syscall
+                
+                
+                

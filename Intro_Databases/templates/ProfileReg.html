@@ -1,0 +1,33 @@
+<html> <head> <title> Let's Create an Account </title> </head> <div id="menu">
+	</div> <div style="background-color:white; color:black; 
+margin:20px; padding:20px;"> <h1 
+style=font-family:Cambria;;font-size:20pt; color:#00FF00;>
+    New User</h1>
+ <form action="" method="post">
+	Name:<input type="text" placeholder="Full Name" name="name" 
+		value="{{request.form.name}}">
+	<br>
+    Choose a username:<input type="text" placeholder="Username" name="username" 
+	value="{{request.form.username}}">
+    <br>
+  Select A Password:<input type="password" placeholder="Password" 
+	name="password" value="{{request.form.password}}">
+    <br>
+   What's Your Email:<input type="text" placeholder="Email" name="email" 
+	value="{{request.form.email}}">
+    <br>
+    DOB:<input type="date" placeholder="YYYY-MM-DD" name="dob" 
+	value="{{request.form.dob}}">
+    <br>
+    Zip Code:<input type="int" placeholder="Zip Code" name="zipcode" 
+	value="{{request.form.zipcode}}">
+    <br>
+    Contact #:<input type="tel" placeholder="Phone Number" name="contact" 
+	value="{{request.form.contact}}">
+    <br>
+    Biography:
+    <br><input type ="text" name="bio" value="{{request.form.bio}}"><br><br> 
+<input class="btn btn-default" type="submit" value="confirm"/> </form> 
+</div>
+    
+</html>

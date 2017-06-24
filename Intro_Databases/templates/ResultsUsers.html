@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>
+Results Page
+</title>
+</head>
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/home/user">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/userid">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+<h1 style = font-family:Cambria;
+            text align="center"
+            font-size:20pt;
+            color:#00FF00;> 
+            User Search Results</h1>
+</div>
+
+<div style=text align="center" background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Here are the following search results for your user search:</h2>
+<h3>{{ search }}</h3>
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="1000">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Username </th>
+        <th>Email</th>
+        <th>Bio</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for result in results %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ result[0]}}">{{ result[1] }}</a></td>
+        <td>{{ result[2] }}</td>
+        <td>{{ result[3] }}</td>
+        <td>{{ result[4]|safe  }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>

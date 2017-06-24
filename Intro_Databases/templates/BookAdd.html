@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>
+Add A Book
+</title>
+</head>
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:40px; padding:40px;>
+        <ul>
+        <a href="/home/username">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/userid">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/book">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        Add A Book
+        </ul>
+</div>
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+<h1 style=font-family:Cambria;;font-size:20pt;
+color:#00FF00;> 
+    Enter the book details:</h1>
+
+<form action="" method="post">
+
+    Title:<input type="text" name="title" value="{{request.form.title}}"/>
+    <br>
+    Edition:<input type="number" name="ed" value="{{request.form.ed}}"/>
+    <br>
+    Subject:<input type="text" name="subject" value="{{request.form.subject}}"/>
+    <br>
+    Publisher:<input type="text" name="pubname" value="{{request.form.pubname}}"/>
+    <br>
+    Publication Date #:<input type="date" name="pubdate" value="{{request.form.pubdate}}"/>
+    <br>
+    Page Count:<input type="number" name="pagecount" value="{{request.form.pageount}}"/>
+    <br>
+    ISBN:<input type="number" name="isbn" value="{{request.form.isbn}}"/>
+    <br>
+    Short Description:
+    <br><input type="text" placeholder="Tell me about the book" name ="description" value="{{request.form.description}}"><br><br>
+
+<input class="btn btn-default" type="submit" value="submit"/>
+
+</form>
+</div>
+    
+</body>
+</html>
+

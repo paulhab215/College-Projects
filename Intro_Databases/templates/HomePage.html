@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>
+{{ user[0][0] }}'s Home Page
+</title>
+</head>
+
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/user/{{ user[0][2] }}">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+        <ul>
+        <a href="/user/edit/{{user[0][2]}}">Edit Profile</a>&nbsp;&nbsp;
+        <a href="/list/create/">Create List</a>&nbsp;&nbsp;
+        </ul>
+</div>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+<h1 style = font-family:Cambria;
+            text align="center"
+            font-size:20pt;
+            color:#00FF00;> 
+            Welcome Back {{ user[0][1] }}</h1>
+</div>
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+<h2>Check out these available trades!
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="1000">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Book Title</th>
+        <th>Number available</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for trade in trades %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ trade[0] }}">{{ trade[1] }}</a></td>
+        <td><a href="/book/{{ trade[2] }}">{{ trade[3] }}</a></td>
+        <td>{{ trade[4] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+<h2>Check out your friends most recent reviews!
+    <style>"font-family:Cambria; font-size:25pt;
+color:#00FF00;</style>
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+   <col width="1000">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Book Title</th>
+        <th>Date</th>
+        <th>Review</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for review in reviews %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ review[0] }}">{{ review[1] }}</a></td>
+        <td><a href="/book/{{ review[2] }}">{{ review[3] }}</a></td>
+        <td>{{ review[4] }}</td>
+        <td style = text align = left>{{ review[5] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Check out your friends most recent ratings!
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+   <col width="300">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Book Title</th>
+        <th>Date</th>
+        <th>Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for rating in ratings %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ rating[0] }}">{{ rating[1] }}</a></td>
+        <td><a href="/book/{{ rating[2] }}">{{ rating[3] }}</a></td>
+        <td>{{ rating[4] }}</td>
+        <td>{{ rating[5] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Check out your friends most recent additions to their lists!
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+   <col width="300">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Book Title</th>
+        <th>Date</th>
+        <th>List Added To</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for list in lists %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ list[0] }}">{{ list[1] }}</a></td>
+        <td><a href="/book/{{ list[2] }}">{{ list[3] }}</a></td>
+        <td>{{ list[4] }}</td>
+        <td><a href="/list/{{ list[5] }}">{{ list[6] }}</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Check out your friends most recent reads!
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+   <col width="300">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Book Title</th>
+        <th>Number Read</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for read in reads %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ read[0] }}">{{ read[1] }}</a></td>
+        <td><a href="/book/{{ read[2] }}">{{ read[3] }}</a></td>
+        <td>{{ read[5] }}</td>
+        <td>{{ read[4] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>

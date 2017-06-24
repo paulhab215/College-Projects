@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>
+{{ user[3] }}'s User Page
+</title>
+</head>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>  
+        <a href="/home/{{ login_user }}">Home Page</a>&nbsp;&nbsp;
+        Profile Page&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+<div style=text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+<h1 style=font-family:Cambria;text align="center" font-size:20pt;
+color:#00FF00;> 
+{{ user[1] }}
+</h1>
+
+User Name: {{ user[3] }}
+<br>
+Email: {{ user[2] }}
+<br>
+DOB: {{ user[4] }}
+<br>
+Zip Code: {{ user[5] }}
+<br>
+Join Date: {{ user[8] }}
+<br>
+Trade Contact: {{ user[7] }}
+<br>
+Biography: {{ user[6] }}
+<br><br>
+
+
+<h1> 
+Lists:
+</h1>
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+    <thead>
+    <tr>
+        <th>List Name</th>
+        <th>Create Date</th>
+        <th>Books in List</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for list in lists %}
+    <tr style = text align = center>
+        <td><a href="/list/{{ list[0] }}">{{ list[1] }}</a></td>
+        <td>{{ list[2] }}</td>
+        <td>{{ list[3] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<br><br>
+
+<table>
+
+
+    <tbody>
+	<!-- for review in review -->
+    <tr>
+		<td><a href="#"><!-- lists.name --></a></td>
+    </tr>
+    <!-- endfor -->
+    </tbody>
+</table>
+
+<h1> 
+Statistics:
+</h1>
+
+Number of unique books on lists: {{ stats_lists[0] }}
+<br>
+Number of books read (total): {{ stats_read[0] }}
+<br>
+Number of unique books read: {{ stats_unique[0] }}
+<br>
+Number of pages read: {{ stats_pages[0] }}
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Year</th>
+        <th>Books Read</th>
+        <th>Pages Read</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for year in years %}
+    <tr>
+        <td>{{ year[0] }}</td><!-- <a href="{{year.year}}/YearList.html"></a> -->
+        <td>{{ year[1] }}</td>
+        <td>{{ year[2] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<br>
+<h1>Want to Follow this user?</h1>
+	<form action="" method="post">
+	<input class="btn btn-default" type="submit" value="submit"/> </form> 
+<h1> 
+Friends:
+</h1>
+<br>
+<strong>Total Friends:</strong>
+<strong>{{ friendscount[0][0] }}</strong>
+<br><br>
+<table>
+    <tbody>
+	{% for friend in friends %}
+    <tr>
+		<td><a href="/user/{{ friend[0] }}">{{friend[1]}}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+</html>
+

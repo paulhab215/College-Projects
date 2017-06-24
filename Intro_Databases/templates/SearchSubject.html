@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>
+Search By Subject
+</title>
+</head>
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/home/username">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/userid">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        Search By Subject&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+<h1 style = font-family:Cambria;
+            text align="center"
+            font-size:20pt;
+            color:#00FF00;> 
+            Browse By Subject</h1>
+</div>
+
+<h2 style = margin:20px align="center"; padding:20px;>Here are the available subjects:
+</h2>
+
+<table style=text align="center">
+        <col width="500">
+    <thead>
+    {% for subject in subjects %}
+    <tr>
+        <td><a href="/results/books/{{ subject[0] }}">{{ subject[0] }}</a></td>
+    </tr>
+    {% endfor %}
+
+    </thead>
+</table>
+    
+</body>
+</html>
+
+
+

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>
+Confirm Add to list
+</title>
+</head>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>  
+        <a href="/home/username">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/userid">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+<div style=text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+
+<h1> 
+Lists:
+</h1>
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+    <thead>
+    <tr>
+        <th>List Name</th>
+        <th>Create Date</th>
+        <th>Books in List</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for list in lists %}
+    <tr style = text align = center>
+        <td><a href="/list/insert/{{ bid }}/{{ list[0] }}">{{ list[1] }}</a></td>
+        <td>{{ list[2] }}</td>
+        <td>{{ list[3] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+</html>
+

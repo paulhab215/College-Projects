@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>
+{{ user[3] }}'s User Page
+</title>
+</head>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="user/{{ user[0] }}">Profile Page</a>&nbsp;&nbsp;
+        <a href="/home/username">Home Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+<div style="background-color:white; color:black; 
+margin:20px; padding:20px;"> <h1 
+style=font-family:Cambria;;font-size:20pt; color:#00FF00;>
+    {{ user[1] }}</h1> <form action="" method="post">
+	Current Name:<input type="text" placeholder="Username" name="current_username" value="{{request.form.current_username}}">
+	<br>
+ 	Name:<input type="text" value="{{ user[1] }}" name="name" value="{{request.form.name}}">
+    	<br>
+	Current Password:<input type="password" placeholder="Password" name="current_password" value="{{request.form.current_password}}"> <br>
+    	<br>   
+	Username:<input type="text" value="{{ user[3] }}" name="username" value="{{request.form.username}}">
+	<br>
+    	Password:<input type="password" value="{{ user[2] }}" name="password" value="{{request.form.password}}">
+    	<br>
+	 Email:<input type="varchar" value="{{ user[2] }}" name="email" value="{{request.form.email}}">
+    	<br>
+    	DOB:<input type="date" value="{{ user[4] }}" name="dob" value="{{request.form.dob}}">
+    	<br>
+    	Zip Code:<input type="int" value="{{ user[5] }}" name="zipcode" value="{{request.form.zipcode}}">
+    	<br>
+    	Contact #:<input type="tel" value="{{ user[7] }}" name="contact" value="{{request.form.contact}}">
+   	 <br>
+   	Biography:<br><input type="text" name="bio" value="{{request.form.bio}}"><br><br> 
+<input class="btn btn-default" type="submit" value="confirm"/> </form> 
+</div>
+    
+</html>

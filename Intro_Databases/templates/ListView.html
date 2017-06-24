@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>
+View {% for nomb in nombre %}{{ nomb }}{% endfor %}'s List
+</title>
+</head>
+<body>
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/home/">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/{% for user in userid %}{{ user }}{% endfor %}">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+<h1 style = font-family:Cambria text align="center"font-size:18pt ; color:#00FF00;> {% for list_na in list_name %}{{ list_na }}{% endfor %}</h1>
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+<strong>Total books on list:</strong>
+<strong>{% for list_cou in list_count %}{{ list_cou }}{% endfor %}</strong>
+<br><br>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+    <thead>
+    <tr>
+        <th>Book Title</th>
+        <th>Date Added</th>
+        <th>User's Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for book in books %}
+    <tr style = text align = center>
+        <td><a href="/book/{{ book[0] }}">{{ book[1] }}</a></td>
+        <td>{{ book[2] }}</a></td>
+        <td>{[ book[3] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+
+</body>
+</html>

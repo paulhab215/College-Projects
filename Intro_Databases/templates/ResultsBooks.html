@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>
+Book Results Page
+</title>
+</head>
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/login">Home Page</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Book</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+
+<h1 style = font-family:Cambria;
+            text align="center"
+            font-size:20pt;
+            color:#00FF00;> 
+            Book Search Results</h1>
+</div>
+
+<div style=text align="center" background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Here are the following search results for your book search:</h2>
+<h3>{{ search }}</h3>
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+    <col width="300">
+    <thead>
+    <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Short Description</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for book in results %}
+    <tr style = text align = center>
+        <td><a href="/book/{{ book[0]}}">{{ book[1] }}</a></td>
+        <td><a href="/book/{{ book[2]}}">{{ book[3] }}</a></td>
+        <td>{{ book[4] }}</td>
+        <td>{{ book[5]|safe  }}<td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+</body>
+</html>

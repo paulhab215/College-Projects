@@ -1,0 +1,17 @@
+<html> <head> <title> Let's Add the book </title> </head> <div id="menu">
+	</div> <div style="background-color:white; color:black; 
+margin:20px; padding:20px;"> <h1 
+style=font-family:Cambria;;font-size:20pt; color:#00FF00;>
+    New User</h1>
+ <form action="" method="post">
+	How many times have you read it:<input type="int" name="numread" value="{{request.form.numread}}">
+    <br>
+    When did you start reading it?<input type="date" placeholder="YYYY-MM-DD" name="begindate" 
+	value="{{request.form.begindate}}">
+    <br>
+    When did you finish reading it?<input type="date" placeholder="YYYY-MM-DD" name="finishdate" 
+	value="{{request.form.finishdate}}"><br><br> 
+<input class="btn btn-default" type="submit" value="confirm"/> </form> 
+</div>
+    
+</html>

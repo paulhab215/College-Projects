@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>
+{{ book[0][0] }} Description
+</title>
+</head>
+<body>
+
+<div style= text align="center" background-color:white; color:black; margin:20px; padding:20px;>
+        <ul>
+        <a href="/home/username">Home Page</a>&nbsp;&nbsp;
+        <a href="/user/userid">Profile Page</a>&nbsp;&nbsp;
+        <a href="/search/users">Search Users</a>&nbsp;&nbsp;
+        <a href="/search/books">Search Books</a>&nbsp;&nbsp;
+        <a href="/search/subject">Search By Subject</a>&nbsp;&nbsp;
+        <a href="/BookAdd">Add A Book</a>
+        </ul>
+</div>
+
+
+<section style=text align="center">
+
+<h1 style= font-family:Cambria; align="center"; font-size:25pt; color:#00FF00;>
+{{ book[0][1] }}</h1>
+
+
+
+<p>
+ISBN: {{ book[0][6] }}
+<br>
+Author: {{ author|safe }}
+<br>
+Edition: {{ book[0][8] }}
+<br>
+Subject: <a href="#">{{ book[0][2] }}</a>
+<br>
+Publisher: {{ book[0][3] }}
+<br>
+Publication Date: {{ book[0][4] }}
+<br>
+Page Count: {{ book[0][5] }}
+<br>
+Short Description: {{ book[0][7] }}
+<br>
+Average rating: {{ rating_avg[0][0] }}
+<br><br>
+
+<table style=text align="center">
+ 	<col width="125">
+  	<col width="125">
+   	<col width="125">
+	<col width="125">
+	<col width="125">
+    <thead>
+    <tr>
+        <th><a href="/book/review/{{ book[0][0] }}">Rate or Review</a></th>
+        <th><a href="/list/add/{{ book[0][0] }}">Add to List</a></th>
+        <th><a href="#">Trade Have</a></th>
+	<th><a href="/read/{{ book[0][0]}}">Have You Read This?</a></th>
+    </tr>
+    </thead>
+</table>
+
+</p>
+</section> 
+
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+
+<h1>Trades available:
+</h1>
+<br><br>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+   <col width="1000">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Number Available</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for trade in trades %}
+    <tr>
+        <td><a href="/user/{{ trade[0] }}">{{ trade[1] }}</a></td>
+        <td>{{ trade[2] }}</td>
+        <td><a href="mailto:{{ trade[3] }}">{{ trade[3] }}</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+
+<h2>Recent ratings
+</h2>
+
+<table border="1" cellspacing="1" cellpadding="5">
+ <col width="300">
+  <col width="300">
+    <col width="300">
+   <col width="300">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Date</th>
+        <th>Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+	{% for rating in ratings %}
+    <tr style = text align = center>
+        <td><a href="/user/{{ rating[0] }}">{{ rating[1] }}</a></td>
+        <td>{{ rating[4] }}</td>
+        <td>{{ rating[5] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+<div style="background-color:white; color:black; margin:20px; padding:20px;">
+<h1>Reviews:
+</h1>
+<BR>
+  
+
+<table border="1" cellspacing="1" cellpadding="5">
+    <col width="300">
+    <col width="300">
+    <col width="1000">
+    <thead>
+    <tr>
+        <th>User Name</th>
+        <th>Date</th>
+        <th>Review</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+	{% for review in reviews %}
+    <tr>
+        <td><a href="/user/{{ review[0] }}">{{ review[1] }}</a></td>
+        <td>{{ review[2] }}</td>
+        <td>{{ review[3] }}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+    
+</body>
+</html>

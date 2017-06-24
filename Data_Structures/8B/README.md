@@ -1,10 +1,11 @@
-Project 8A – Problem and Description
+Project 8A â€“ Problem and Description
+
 For this assignment I displayed my knowledge of Hashing. I created a method for a hash table- first declaring its size and randomly populating it (1) and then outputting the numbers contained in the hash table (2). Lastly I searched the hash table and saw if a certain Student ID was present (3).
-?	In this portion of the assignment I populated the hash table by randomizing ids and entering them into the student ID field. After doing so I inputted them into the linked list based on the key function:
+-	In this portion of the assignment I populated the hash table by randomizing ids and entering them into the student ID field. After doing so I inputted them into the linked list based on the key function:
  
-?	The next portion of the assignment I accomplished the display method – basically outputting the method to the screen by while looping through the variables of the linked lists:
+-	The next portion of the assignment I accomplished the display method â€“ basically outputting the method to the screen by while looping through the variables of the linked lists:
  
-?	The last portion of the assignment I search for peoples IDs twice. This was accomplished by looping through the Linked Lists contained within the hash table:
+-	The last portion of the assignment I search for peoples IDs twice. This was accomplished by looping through the Linked Lists contained within the hash table:
 
 
 Test Input and Output
